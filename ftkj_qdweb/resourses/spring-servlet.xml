@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Bean头部 -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+            http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd
+            http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd
+            http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.2.xsd">
+	<!-- 注解扫描包 -->
+	<context:annotation-config />
+	<context:component-scan base-package="com.qd.ftkj.website" />
+	<!-- 开启注解 -->
+	<mvc:annotation-driven />
+	<mvc:interceptors>
+		<bean class="com.qd.ftkj.website.interceptor.CommonInterceptor" />
+	</mvc:interceptors>
+	<mvc:resources mapping="/resources/**" location="/resources/" />
+	<mvc:resources mapping="/page/**" location="/page/" />
+	<mvc:resources mapping="/js/**" location="/js/" />
+	<mvc:resources mapping="/**" location="/" />
+	<!-- 视图调转 -->
+	<bean id="viewResolver"
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/" />
+		<property name="suffix" value=".jsp" />
+	</bean>
+	<!-- 定时器 -->
+	<!-- <bean name="contentarbitrateservicejob" class="org.springframework.scheduling.quartz.JobDetailBean">
+		<property name="jobClass">
+			<value>com.qd.ftkj.website.service.impl.TaskServiceImpl</value>
+		</property>
+		<property name="jobDataAsMap">
+			<map>
+				spring 管理的service需要放到这里，才能够注入成功
+				<description>schedulerContextAsMap</description>
+				<entry key="regularServiceImpl" value-ref="regularServiceImpl" />
+			</map>
+		</property>
+	</bean> -->
+	<!-- 配置触发器 -->
+	<!-- <bean id="cronTriggerCA" class="org.springframework.scheduling.quartz.CronTriggerBean">
+		<property name="jobDetail">
+			<ref bean="contentarbitrateservicejob" />
+		</property>
+		每天的10点到50点 触发，具体说明见附录
+		<property name="cronExpression">
+			<value>*/5 * * * * ?</value>
+			<value>0 0 12 * * ?</value>
+		</property>
+
+	</bean>
+	<bean class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+		添加触发器
+		<property name="triggers">
+			<list>
+				<ref local="cronTriggerCA" />
+			</list>
+		</property>
+	</bean> -->
+	<!-- //定时器 -->
+	<!-- json转换 -->
+	<bean
+		class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
+		<property name="messageConverters">
+			<list>
+				<bean
+					class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter" />
+				<bean
+					class="org.springframework.http.converter.StringHttpMessageConverter">
+					<property name="supportedMediaTypes">
+						<list>
+							<value>text/plain;charset=UTF-8</value>
+						</list>
+					</property>
+				</bean>
+			</list>
+		</property>
+	</bean>
+
+	<!-- 文件上传 -->
+	<bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<property name="defaultEncoding" value="utf-8" />
+		<property name="maxUploadSize" value="10485760000" />
+		<property name="maxInMemorySize" value="40960" />
+	</bean>
+
+	<bean id="propertyConfigurer"
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations">
+			<list>
+				<value>classpath*:jdbc.properties
+				</value>
+			</list>
+		</property>
+	</bean>
+	<!-- 定义数据源Bean -->
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
+		destroy-method="close">
+		<property name="driverClassName" value="${driverClassName}" />
+		<property name="url" value="${url}" />
+		<property name="username" value="${username}" />
+		<property name="password" value="${password}" />
+		<property name="maxActive" value="${maxActive}" />
+		<property name="maxIdle" value="${maxIdle}" />
+		<property name="maxWait" value="${maxWait}" />
+	</bean>
+	<!-- 下面定义了DbUtils的一个模板操作Bean -->
+	<bean id="dbUtilsTemplate" class="com.qd.ftkj.website.utils.DbUtilsTemplate">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+</beans>

@@ -1,0 +1,321 @@
+/**
+ * 最外层div属性，设置边距
+ */
+
+.box {
+	width: 100%;
+	height: auto!important;
+	margin: 0px auto;
+}
+
+/**
+ * 包含页面的div设置
+ */
+
+.main {
+	float: left;
+	margin:5px 20px;
+}
+
+
+/**
+ * 左侧div属性设置
+ */
+
+.main_l {
+	width: 290px;
+	float: left;
+}
+
+
+/**
+ * 左侧 上方第一个div设置
+ */
+
+.main_la {
+	width: 267px;
+	height: 236px;
+	float: left;
+	margin-top: 34px;
+	margin-left: 6px;
+	_margin-left: 3px;
+}
+
+
+/**
+ * 左侧第一个div 标题属性
+ */
+
+.main_lat {
+	width: 270px;
+	height: 32px;
+	background: transparent url("../images/main_r_title.png") no-repeat scroll 0% 0%;
+	line-height: 30px;
+	text-align: center;
+}
+.main_lat span{
+	color:white;
+	font-size:14px;
+}
+
+/**
+ * 左侧第一个div 内容属性
+ */
+
+.main_lad {
+	width: 263px;
+	float: left;
+	margin: -7px 2px;
+	border: 1px solid #DFCFAD;
+}
+
+
+/**
+ * 左侧  第二个div设置
+ */
+
+.main_lb {
+	width: 332px;
+	height: 208px;
+	float: left;
+	margin-top: 16px;
+	margin-left: 6px;
+	_margin-left: 3px;
+}
+
+
+/**
+ * 左侧 第二个div 标题设置
+ */
+
+.main_lbt {
+	width: 214px;
+	height: 21px;
+	float: left;
+}
+
+
+/**
+ * 左侧 第二个div 内容
+ */
+
+.main_lbd {
+	width: 332px;
+	height: 172px;
+	float: left;
+	margin-top: 5px;
+	border: #dfcfad solid 1px;
+}
+
+
+/**
+ * 左侧 第二个div内容列表设置
+ */
+
+.main_lbd_list {
+	width: 332px;
+	padding: 0px;
+	text-align: left;
+	list-style: none;
+	float: left;
+	height: auto!important;
+}
+
+
+/**
+ * 左侧 第二个div内容列表设置 ul
+ */
+
+.main_lbd_list ul {
+	padding: 0px;
+	margin: 0px;
+	list-style: none;
+}
+
+
+/**
+ * 左侧 第二个div内容列表设置 li
+ */
+
+.main_lbd_list ul li {
+	line-height: 24px;
+	height: 24px;
+}
+
+
+/**
+ * 左侧 第二个div内容列表设置 li 的链接设置
+ */
+
+.main_lbd_list ul li a {
+	width: 332px;
+	line-height: 24px;
+	padding-left: 25px;
+	background: url(../images/dian01.jpg) 4px 6px no-repeat;
+	color: #9b8b7e;
+}
+
+
+/**
+ * 左侧 第二个div内容列表设置 li 的链接设置 移动
+ */
+
+.main_lbd_list ul li a:hover {
+	width: 332px;
+	line-height: 24px;
+	padding-left: 25px;
+	color: #FF5400;
+}
+
+
+/**
+ * 左侧 第二个div内容列表设置 li 的链接设置 span
+ */
+
+.main_lbd_list ul li span {
+	float: right;
+	padding-right: 10px;
+	text-align: right;
+	color: #8f7d6e;
+}
+
+
+/**
+ * 左侧 第三个div属性设置
+ */
+
+.main_lc {
+	width: 333px;
+	height: 236px;
+	float: left;
+	margin-top: 34px;
+	margin-left: 6px;
+	_margin-left: 3px;
+}
+
+
+/**
+ * 左侧第三个div 标题
+ */
+
+.main_lct {
+	width: 325px;
+	height: 32px;
+}
+
+
+/**
+ * 左侧第三个 div 内容
+ */
+
+.main_lcd {
+	width: 321px;
+	height: 198px;
+	background: url(../images/main_la03.jpg) no-repeat;
+	float: left;
+	margin-top: 8px;
+	border: #dfcfad solid 1px;
+}
+
+
+/**
+ * 清除，不知道干啥的 在左侧第二个div内容的最后用到了
+ */
+
+.clear {
+	clear: both;
+}
+
+
+/**
+ * 右侧div属性
+ */
+
+.main_r {
+	width: 681px;
+	height: 700px;
+	float: right;
+	margin-top: 34px;
+}
+
+
+/**
+ * 表格整体属性
+ */
+
+table.altrowstable {
+	width:100%;
+	font-family: verdana, arial, sans-serif;
+	font-size: 14px;
+	color: #333333;
+	border-width: 1px;
+	border-color: #a9c6c9;
+	border-collapse: collapse;
+}
+
+
+/**
+ * 表格th属性
+ */
+
+table.altrowstable th {
+	border-width: 1px;
+	padding: 8px;
+	border-style: solid;
+	border-color: #a9c6c9;
+	color: #FF0000;
+}
+
+
+/**
+ * 表格td属性
+ */
+
+table.altrowstable td {
+	border-width: 1px;
+	padding: 8px;
+	border-style: solid;
+	border-color: #a9c6c9;
+}
+table.altrowstable td a:hover{
+	color:#de3237;text-decoration:underline;
+}
+
+/**
+ * 奇数行颜色
+ */
+
+.oddrowcolor {
+	background-color: #FFFFFF;
+}
+
+
+/**
+ * 偶数行颜色
+ */
+
+.evenrowcolor {
+	background-color: #f6f6f6;
+}
+
+.maintitle{
+	height:30px;
+	line-height:30px;
+	font-size:12px;
+	margin-bottom: -20px;
+}
+.maintitle a{font-size:12px;}
+.maintitle a:hover{color:#FF0000}
+
+/********  栏目树样式  **********/
+#infotreeul{width:90%;margin:5px 20px;}
+#infotreeul li{height:20px;margin:5px 0;float:left;border-bottom:1px dashed grey;}
+#infotreeul li a{width:200px;font-size:15px;display:block;float:left;margin-left:5px;color:#696969;overflow: hidden; white-space: nowrap;text-overflow:ellipsis;text-align: left;}
+#infotreeul li a:hover{color:#de3237;text-decoration:underline;}
+#infotreeul img{
+	display: block;
+	float: left;
+	margin-left: 10px;
+	margin-top: 5px;
+	vertical-align: middle;
+}
